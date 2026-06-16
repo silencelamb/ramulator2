@@ -14,10 +14,10 @@ bool Factory::register_interface(std::string ifce_name, std::string ifce_desc) {
     m_registry[ifce_name] = {ifce_name, ifce_desc};
     return true;
   } else {
-    throw InitializationError(
-      "Interface class {} is already registered!", 
-      ifce_name
-    );
+    // AMMU fork edit: idempotent. Duplicate registration happens when libramulator.so is loaded
+    // as a Python-extension dependency (inline-static registrars in headers run once per loaded
+    // shared object against the shared Factory registry). Treat as success instead of throwing.
+    return true;
   }
   return false;
 };
@@ -44,11 +44,9 @@ bool Factory::register_implementation(std::string ifce_name, std::string impl_na
       impls_info[impl_name] = {impl_name, impl_desc, cstr};
       return true;
     } else {
-      throw InitializationError(
-        "Interface class {} of implementation {} is already yet registered!", 
-        ifce_name,
-        impl_name
-      );    
+      // AMMU fork edit: idempotent (see register_interface) — duplicate impl registration on
+      // multi-load (Python extension) is benign; treat as success.
+      return true;
     }
 
   } else {
