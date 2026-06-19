@@ -1,4 +1,13 @@
 # Ramulator V2.0a
+## Ramulator V2.1 Pre-Release Note
+We have pre-released Ramulator 2.1 as a major overhaul to Ramulator 2.0 in the [v2.1 branch](https://github.com/CMU-SAFARI/ramulator2/tree/v2.1)! We recommend you to switch to Ramulator 2.1 and let us know your thoughts (through the Discussions tab on Github) and/or if you find any new bugs (through issues and PRs). We will soon make v2.1 the default on Github and v2.0a will be archived.
+
+What has changed from Ramulator 2.0:
+- Aggregated bug fixes (identified from both Github issues and internal testing)
+- More comprehensive support for newer DRAM & controller features
+- More comprehensive sets of test and validation workflows
+- Significantly improved the ease of use, configuration, and extension
+- Overall code quality improvements
 ## Introduction
 Ramulator 2.0 is a modern, modular, and extensible cycle-accurate DRAM simulator. It is the successor of Ramulator 1.0 [Kim+, CAL'16], achieving both fast simulation speed and ease of extension. The goal of Ramulator 2.0 is to enable rapid and agile implementation and evaluation of design changes in the memory controller and DRAM to meet the increasing research effort in improving the performance, security, and reliability of memory systems. Ramulator 2.0 abstracts and models key components in a DRAM-based memory system and their interactions into shared interfaces and independent implementations, enabling easy modification and extension of the modeled functions of the memory controller and DRAM. 
 
