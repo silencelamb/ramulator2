@@ -1,6 +1,8 @@
-build/
+build*/
+.cache/
 .vscode
 ext/
 ramulator2
 *.so
+*.dylib
 autobuild.sh
